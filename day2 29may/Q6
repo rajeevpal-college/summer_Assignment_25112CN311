@@ -1,0 +1,16 @@
+//Qsix reverse the number
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int N,D=0,rev=0;
+    cout<<"enter the number to be reversed ";
+    cin>>N;
+    while(N>0){
+        D=N%10;
+        rev=rev*10+D;
+        N=N/10;
+
+    }
+    cout<<rev;
+    return 0;
+}

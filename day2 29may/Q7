@@ -1,0 +1,15 @@
+//product of digit of number
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int N, prod=1,D=0;
+    cout<<"enter number";
+    cin>>N; 
+    while (N>0) {
+        D=N%10;
+        prod=prod*D;
+        N=N/10;
+    }
+    cout<<prod;
+    return 0;
+}

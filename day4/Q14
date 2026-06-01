@@ -1,0 +1,18 @@
+//nth term of fibonacci 
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int i,n ,NN=1,PN=1,temp ;
+cout<<"enter Nth term of fibonacci\n";
+cin>>n;
+//cout<<"PN \n"<<"NN \n";
+for(i=0;i<=n-3;i++){
+    temp=NN;
+    NN=NN+PN;
+    PN=temp;
+}
+// cout<< "the "<<n "th term is"<<NN ;
+cout<< "the "<<n<< "th term is"<<NN ; //<<n nhi hoga <<n<< hogas
+    return 0;
+}
+

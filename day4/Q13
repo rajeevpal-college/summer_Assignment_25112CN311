@@ -1,0 +1,21 @@
+// FIBONACCI SERIES
+#include<bits/stdc++.h>
+using namespace std;
+int main() {
+int PN=1,temp=0,NN=1,n,i;
+
+cout<<"enter the number \n";
+cin>>n;
+cout<<PN<<"\n";
+cout<<NN<<"\n";
+
+for(i=1;i<=n;i++){
+temp=NN;
+NN=PN+NN;
+// cout<<NN \n ;
+cout<<NN <<"\n" ;
+//PN=NN;
+PN=temp;
+}
+return 0;
+}

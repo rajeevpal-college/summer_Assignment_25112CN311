@@ -1,8 +1,17 @@
 //WAP to find x^n without pow()
 #include<bits/stdc++.h>
-using namespac std;
+using namespace std;
 int main(){
+int x,n,i,temp;
+cout<<"enter value of X^n x and n";
+cin>>x>>n;
+temp= x;
+for(i=1;i<n;i++){
 
+x= x*temp;
+
+}
+cout<<x;
 return 0;
 }
 

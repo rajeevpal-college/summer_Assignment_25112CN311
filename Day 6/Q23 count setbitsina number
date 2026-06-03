@@ -1,8 +1,24 @@
 //WAP to check count set bits in a number 
+//Given ek number n, uske binary form me kitne 1 present hain?"
+
 #include<bits/stdc++.h>
-using namespace std
+using namespace std;
 int main (){
 
+int i,B=0,count=0,n,n1 ;//count 1 nhi hoga
+cout<<"enter number";
+cin>>n;
+n1=n;
+//for(i=1;i<n;i++){//loop galat lagi thi , i<n   , dry run m 1i 2i<n 3n%2 4count 5n=n/2
+ //   for(i=1;i<n1;i++)// for loop jyada chale gi to while loop use kre g kam bar chale gi time saved
+ 
+ while(n>0){
+if (n%2==1){            
+ count=count+1;}
+n=n/2;
+
+}
+cout<<count;
 
 return 0;
 }

@@ -2,7 +2,17 @@
 #include<bits/stdc++.h>
 using namespace std
 int main (){
+int i,n,B;
+cout<< enter the decimal number ;
+cin>>N;
 
+while(n>0){
+B=(n%2)*pow(10,i)+B;
+n=n/2
+i++  ; //i=i+1
+}
+cout<<B;
+return 0;
 }
 
 

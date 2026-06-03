@@ -1,0 +1,11 @@
+//WAP to find x^n without pow()
+#include<bits/stdc++.h>
+using namespac std;
+int main(){
+
+return 0;
+}
+
+
+
+

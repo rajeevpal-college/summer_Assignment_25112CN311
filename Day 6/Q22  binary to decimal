@@ -1,0 +1,24 @@
+
+//Write a program to Convert binary to decimal.(1111-->15)
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+int B,D=0,i=0,n;
+cout<<"enter binary number";
+cin>>B;
+// for (i=0;i<B;i++){ // for loop se puri loop run nhi kr rhi 
+while(B>0){
+D=(B%10)*pow(2,i)+D;
+B=B/10;
+i+=1;
+}
+cout<<D;
+
+return 0;
+}
+
+
+
+
+

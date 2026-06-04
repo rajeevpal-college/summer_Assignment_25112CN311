@@ -1,0 +1,6 @@
+Write a program to Recursive reverse number
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+
+}

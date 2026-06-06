@@ -1,0 +1,12 @@
+//Q35 WAP a program to print repeated character pattern.
+// A
+// BB   
+// CCC
+// DDDD
+// EEEEE
+ 
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    return 0;
+}

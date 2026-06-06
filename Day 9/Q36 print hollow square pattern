@@ -1,0 +1,13 @@
+//Q36WAP to print hollow square pattern
+// *****     
+// *   *
+// *   *
+// *   *
+// *****
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    return 0;
+    
+}

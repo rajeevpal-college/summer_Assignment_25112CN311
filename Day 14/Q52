@@ -1,0 +1,18 @@
+ //Write a program to Linear search
+#include<bits/stdc++.h>
+using namespac std;
+int main(){
+int n,i;
+cout<<"enter the N of array";
+cin>>n;
+ 
+for(i=0;i<n;i++){
+cout<<"enter"<<i<< term<<endl<<;
+cin>>array[i];
+
+}
+
+return 0;}
+
+
+

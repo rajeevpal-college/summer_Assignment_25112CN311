@@ -1,0 +1,23 @@
+//Q56 Write a program to Find duplicates in array
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int n,i,j;
+    cout<<"eneter length";
+    cin>>n;
+    int array[n];
+    for(i=0;i<n;i++){
+    cout <<"enter the"<<i<<"element";
+    cin>>array[i];
+    }
+    cout <<"duplicate elements are ";
+    for(i=0;i<n;i++){
+        for(j=i+1;j<n;j++){
+            if(array[i]==array[j]){
+            cout<<array[i];}
+        }
+    }
+
+
+    return 0;
+}

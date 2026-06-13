@@ -1,0 +1,48 @@
+//Q68 Write a program to Find common elements. 
+#include <bits/stdc++.h>
+using namespace std;
+
+// Function to print common elements between two unsorted arrays
+void printCommonElements(int arr1[], int n1, int arr2[], int n2) {
+    unordered_set<int> elementsSet;
+    unordered_set<int> intersectionSet;
+
+    // Insert all unique elements of the first array into the hash set
+    for (int i = 0; i < n1; i++) {
+        elementsSet.insert(arr1[i]);
+    }
+
+    cout << "Common Elements: ";
+    bool found = false;
+
+    // Traverse the second array and check for matches
+    for (int i = 0; i < n2; i++) {
+        // If element exists in the first set, it is a common element
+        if (elementsSet.count(arr2[i])) {
+            // Insert into intersectionSet to prevent printing duplicates
+            if (intersectionSet.find(arr2[i]) == intersectionSet.end()) {
+                cout << arr2[i] << " ";
+                intersectionSet.insert(arr2[i]);
+                found = true;
+            }
+        }
+    }
+
+    if (!found) {
+        cout << "No common elements found.";
+    }
+    cout << endl;
+}
+
+int main() {
+    // Input arrays (Can be unsorted and contain duplicates)
+    int arr1[] = {4, 2, 9, 2, 6, 1};
+    int arr2[] = {2, 7, 1, 2, 4, 8};
+
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+
+    printCommonElements(arr1, n1, arr2, n2);
+
+    return 0;
+}

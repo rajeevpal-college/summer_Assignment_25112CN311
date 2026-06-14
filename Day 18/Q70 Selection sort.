@@ -1,0 +1,30 @@
+//Q70 Write a program to Selection sort. Amazon, Deloitte, Capgemini
+//take input of array>logic of selection sort>print sorted array
+#include<bits/stdc++.h>
+using namespace std;
+int main (){
+    int n;
+    cout<<"enter size of an array: ";
+    cin >> n;
+    int arr[n];
+    //array input le liya 
+    for(int i=0;i<n;i++){
+        cout<<"enter element of array: ";
+        cin>>arr[i];  
+    }
+    //selection sort logic
+    for(int i=0;i<n-1;i++){
+        int min_index=i;
+        for(int j=i+1;j<n;j++){
+            if(arr[j]<arr[min_index]){
+                min_index=j;
+            }
+        }
+        swap(arr[i],arr[min_index]);
+    }
+    //print sorted array 
+    cout<<"sorted array is: ";
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}

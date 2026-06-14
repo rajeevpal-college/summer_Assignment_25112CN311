@@ -1,0 +1,30 @@
+//Q72 Write a program to Sort array in descending order.
+//take input of array>logic of selection sort for descending order>print sorted array
+#include<bits/stdc++.h>
+using namespace std;
+int main (){
+    int n;
+    cout<<"enter size of an array: ";
+    cin >> n;
+    int arr[n];
+    //array input le liya 
+    for(int i=0;i<n;i++){
+        cout<<"enter element of array: ";
+        cin>>arr[i];  
+    }
+    //selection sort logic for descending order
+    for(int i=0;i<n-1;i++){
+        int max_index=i;
+        for(int j=i+1;j<n;j++){
+            if(arr[j]>arr[max_index]){
+                max_index=j;
+            }
+        }
+        swap(arr[i],arr[max_index]);
+    }
+    //print sorted array 
+    cout<<"sorted array in descending order is: ";
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+}

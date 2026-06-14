@@ -1,0 +1,29 @@
+//Q69 Write a program to Bubble sort. Amazon, Deloitte, Capgemini
+//take input of array>logic of bubble sort>print sorted array
+#include<bits/stdc++.h>
+using namespace std;
+int main (){
+   int n;
+   cout<<"enter size of an array: ";
+   cin >> n;
+   int arr[n];
+   //array input le liya 
+   for(int i=0;i<n;i++){
+      cout<<"enter element of array: ";
+      cin>>arr[i];  
+   }
+   //bubble sort logic
+   for(int i=0;i<n-1;i++){
+   // for(j=0;j<n-1;j++){
+        
+      for(int j=0;j<n-i-1;j++){
+         if(arr[j]>arr[j+1]){
+            swap(arr[j],arr[j+1]);
+         }
+      }
+   }
+   //print sorted array 
+   cout<<"sorted array is: ";
+   for(int i=0;i<n;i++){
+      cout<<arr[i]<<" ";
+   }

@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int r, c;
+    cout << "Enter rows and columns: ";
+    cin >> r >> c;
+
+    // Symmetric matrix hamesha square matrix hota hai (rows aur columns same hone chahiye)
+    if (r != c) {
+        cout << "The matrix is NOT symmetric (Square matrix nahi hai)." << endl;
+        return 0;
+    }
+
+    vector<vector<int>> matrix(r, vector<int>(c));
+
+    // Matrix ke elements input lena
+    cout << "Enter elements of the matrix:" << endl;
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            cin >> matrix[i][j];
+        }
+    }
+
+    bool isSymmetric = true;
+
+    // Symmetry check karne ke liye loop
+    for (int i = 0; i < r; i++) {
+        for (int j = 0; j < c; j++) {
+            // Agar koi bhi element apne mirror element (j, i) ke barabar nahi hai
+            if (matrix[i][j] != matrix[j][i]) {
+                isSymmetric = false;
+                break; // Agar ek bhi mismatch mila toh aage check karne ki zaroorat nahi
+            }
+        }
+        if (!isSymmetric) break;
+    }
+
+    // Final result print karna
+    if (isSymmetric) {
+        cout << "The matrix is symmetric." << endl;
+    } else {
+        cout << "The matrix is NOT symmetric." << endl;
+    }
+
+    return 0;
+}

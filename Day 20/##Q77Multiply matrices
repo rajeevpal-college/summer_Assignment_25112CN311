@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int r1, c1, r2, c2;
+    
+    // User se dimensions input lena
+    cout << "Enter rows and columns for first matrix: ";
+    cin >> r1 >> c1;
+    cout << "Enter rows and columns for second matrix: ";
+    cin >> r2 >> c2;
+
+    // Check karna ki multiplication possible hai ya nahi
+    if (c1 != r2) {
+        cout << "Error! Columns of first matrix must equal rows of second matrix." << endl;
+        return 0;
+    }
+
+    // Dynamic sizes ke liye vectors use kiya
+    vector<vector<int>> m1(r1, vector<int>(c1));
+    vector<vector<int>> m2(r2, vector<int>(c2));
+    vector<vector<int>> res(r1, vector<int>(c2, 0)); // Result matrix ko zero se fill kiya
+
+    // Pehle matrix ke elements input lena
+    cout << "Enter elements of matrix 1:" << endl;
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c1; j++) {
+            cin >> m1[i][j];
+        }
+    }
+
+    // Doosre matrix ke elements input lena
+    cout << "Enter elements of matrix 2:" << endl;
+    for (int i = 0; i < r2; i++) {
+        for (int j = 0; j < c2; j++) {
+            cin >> m2[i][j];
+        }
+    }
+
+    // Main multiplication logic yahan hai (3 nested loops)
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            for (int k = 0; k < c1; k++) {
+                res[i][j] += m1[i][k] * m2[k][j]; // Row aur column ke elements ko multiply karke add karna
+            }
+        }
+    }
+
+    // Final answer print karna
+    cout << "Resultant Matrix:" << endl;
+    for (int i = 0; i < r1; i++) {
+        for (int j = 0; j < c2; j++) {
+            cout << res[i][j] << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+ int main (){
+char str[100];
+
+cout<<"enter a string: ";
+cin.getline(str, 100);
+int length = 0;
+//string length nialna 
+while (str[length] != '\0') {
+length++;
+}
+
+bool palindrome = true;
+//dono side se character compare karna 
+for(int i=0;i<length/2;i++){
+if(str[i] !=str[length - i -1]){
+palindrome=false;
+break;
+
+}
+ }
+if(palindrome)
+cout <<"string is palindrome";
+else
+cout<<"string is not palindrome";
+return 0;
+}

@@ -1,0 +1,27 @@
+//character frequency 
+#include<bits/stdc++.h>
+using namespace std;
+int main () {
+char str [100];
+cout<<"enter a string: ";
+cin.getline(str, 100);
+// ASCII ke liye frequency array
+int freq[256] = {0};
+//har character ki frequency count krna 
+for (int i=0;str[i] !='\0'; i++){
+freq[str[i]]++;
+}
+cout<< "character frequencies :\n";
+//sirf wahi character print krna jo aaye hain
+for (int i=0; i<256;i++){
+if (freq[i]>0){
+cout << (char)i<< " = " << freq[i] << endl;
+
+}
+}
+return 0;
+}
+
+
+
+

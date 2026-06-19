@@ -1,0 +1,30 @@
+//wap to check anagram strings
+//anagram = same letter , same number of times ,order changed
+#include<bits/stdc++.h>
+using namespace std;
+int main (){
+    //input 2 stings
+    string str1,str2;
+    cout<<"enter 1st string: "<< endl ;
+    cin>>str1;
+    cout<<"enter 2nd string: "<< endl;
+    cin>>str2;
+    //string length alag h to anagram nhi hoga
+    if (str1.length() !=str2.length()){
+        cout<<"not anagrams";
+        return 0;
+    }
+    //sorting 2 strings
+    sort(str1.begin(),str1.end());
+    sort(str2.begin(),str2.end());
+
+    if (str1==str2){
+        cout<<"string are anagrams" ;  
+    } else {
+        cout<<"string are not anagrams";
+
+    }
+    return 0;
+
+
+}

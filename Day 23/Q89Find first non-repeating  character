@@ -1,0 +1,29 @@
+//find first non repeating character 
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string str;
+    //input
+    cout<<"enter a sting: ";
+    cin>> str;
+    // har character ko check karo //i<str.length()
+    for(int i= 0;i<str.length();i++) {
+        bool repeat = false;//character repeat nhi hua
+        //character puri string me search karo
+        for (int j=0;j<str.length();j++) {
+            //i!=j: same characer ki same position se compare nhi kre g
+            //str[i]==str[j]:dono position pe same character hai
+            if(i!=j&&str[i]==str[j]){
+                repeat=true;//character repeat ho gaya
+                break;
+            }    
+        }
+
+        if(repeat==false){
+            cout<<"first non repeating character is: " <<str[i];
+            return 0;
+        }
+    }
+    cout<<"no non repeating character found";
+    return 0;
+}

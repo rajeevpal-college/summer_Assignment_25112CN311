@@ -1,0 +1,25 @@
+//wap to find first repeating character
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+string strname;
+cout<<"enter string ";
+cin>>strname;
+for(int i=0;i<strname.length();i++){
+bool repeat =true;
+for(int j=0;j<strname.length();j++){
+
+if(strname[i]==strname[j]){
+    bool repeat =true;// bool kya h
+    break;
+}
+}
+    if(repeat==true){
+        cout<<"first repeating character is "<<strname[i];
+        return 0;
+    }
+}
+cout<<"no repeating character found";
+return 0;
+
+}

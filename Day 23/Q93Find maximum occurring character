@@ -1,0 +1,35 @@
+//Write a program to Find maximum occurring character
+//aabbcccde , max occurence :c, 3times
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string str;
+    //input string
+    cout<< "enter a string: ";
+    cin >>str;
+
+    //ascii ke har character ka count store karne ke liye array
+    int count[256]={0};
+    //character ki frequency count 
+    for(int i=0;i<str.length();i++){
+        count[str[i]]++;
+    }
+
+    int maximum =0;
+    char answer;
+
+    //loop to find highest frequency character 
+    for (int i=0;i<str.length();i++){
+        if (count[str[i]]>maximum){
+            maximum =count[str[i]];
+            answer =str[i];
+
+        }
+    }
+
+    cout<<"maximum occuring character is: "<<answer <<endl;
+    cout<<"it occurs"<<maximum<<"times";
+    return 0;
+
+
+}

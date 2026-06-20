@@ -1,0 +1,26 @@
+//compress a string
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string nstr;
+    cout<<"enter string";
+    cin>>nstr;
+
+    string compressed="";
+    int count=1;
+
+    //loop to check character 
+    for(int i=0;i<nstr.length();i++){   //nstr.length();
+    if(nstr[i]==nstr[i+1]){count++;}
+    else{
+        compressed+=nstr[i];
+        compressed+=to_string(count);
+        count=1;
+
+    }
+}
+    
+    cout<<"compressed string: "<< compressed;
+
+    return 0;
+}

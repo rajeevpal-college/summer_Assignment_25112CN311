@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string sentence,word,longestword;
+
+    cout<<"enter sentence: ";
+    //cin>>sentence;
+    getline(cin,sentence);//poori line with space
+    word="";
+    longestword="";
+
+    sentence+=' ';    //""; //extra space in end to terminate word
+
+    //main logic
+
+    for(int i=0;i<sentence.length();i++){
+        if(sentence[i]!=' '){
+            word+=sentence[i];
+        }
+        else{
+            if(word.length()>longestword.length()){
+                longestword=word;
+            }
+            word="";
+        }
+    }
+    cout<<"longest word is: "<<longestword<<endl;
+    cout<<"length: "<<longestword.length();
+    return 0;
+}

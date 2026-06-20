@@ -1,0 +1,21 @@
+//Write a program to Remove duplicate characters.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string nstr;
+    cout<<"enter string ";
+    cin>>nstr;
+    string answer ="";
+
+    //loop
+    for(int i=0;i<nstr.length();i++){
+        if(answer.find(nstr[i])==string::npos){
+            answer+=nstr[i];
+
+        }
+    }
+     cout<<"string after removing duplucate char ";
+            cout <<answer;
+
+            return 0;
+}

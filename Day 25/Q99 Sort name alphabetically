@@ -1,0 +1,35 @@
+//Q99 Write a program to Sort names alphabetically.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string sentence;
+    cout<<"enter string/ names ";
+    //cin>>nstr;
+    getline(cin,sentence);//poora sentence with space
+
+    vector<string> names;
+    string word = "";
+    //end me space add kiya ,taki last word bhi vector m add ho jaye
+    sentence +=' ';
+    //sentence se ek ek word nikalna 
+
+    for (int i=0;i<sentence.length();i++){
+        if (sentence[i]!=' '){
+            word += sentence[i];
+        }else{
+            if(word!=""){
+                //word ko vector me store kro
+                names.push_back(word);
+            }
+            word=""; //agla word banane ke liye reset
+        }
+    }
+    //name ko a-z alphabetical order me sort kro
+    sort(names.begin(),names.end());
+    cout<<"names sorted alphabetically: ";
+
+    for(int i=0;i<names.size();i++){
+        cout<<names[i]<< " ";
+    }
+    return 0;
+}

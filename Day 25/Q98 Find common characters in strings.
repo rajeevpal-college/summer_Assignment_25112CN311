@@ -1,0 +1,29 @@
+//Write a program to Find common characters in strings.
+
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    string nstr1, nstr2;
+    cout<<"enter first string ";
+    cin>>nstr1;
+    cout<<"enter second string ";
+    cin>>nstr2;
+
+    string common= "";
+    //first string ke caracter ko check kro
+    for(int i=0;i<nstr1.length();i++){
+        //character second string me hai
+        //aur common result mein already add nhi hua
+    if( nstr2.find(nstr1[i])!=string::npos
+&&common.find(nstr1[i])==string::npos){
+    common+=nstr1[i];
+}
+    }
+    if (common==""){
+        cout<<"no common characters ";
+    }else{
+        cout<<"common character are: "<<common;
+    }
+    return 0;
+
+}

@@ -1,1 +1,29 @@
-
+//Q101Write a program to Create number guessing game.
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    //SRAND CURRENT TIME KO SEED BANATA HAI
+    //JISSE HAR RUN PAR RANDOM NUMBER CHANGE HO SAKE
+    srand(time (0));
+    //RAND()100 SE 099 NUMBER MILTA HA
+    //+1 KARNE SE RNAGE 1SE100  
+    int secretnumber=rand()%100+1;
+    int guess;
+    int attempt=0;
+    cout<<"guess the number between 1 to 100"<<endl;
+    while(true){
+        cout<<"enter your guess: ";
+        cin>>guess;
+        attempt++;
+        if(guess<secretnumber){
+            cout<<"too low try again"<<endl;}
+            else if (guess > secretnumber){
+                cout<<"too height try again"<<endl;
+            }
+            else{
+                cout<<"correct"<<attempt<<"attempts";
+                break;}
+               
+            }
+             return 0;
+        }

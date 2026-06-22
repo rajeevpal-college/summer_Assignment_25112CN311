@@ -1,0 +1,43 @@
+// Q104 Write a program to Create quiz application.
+
+#include<bits/stdc++.h>
+using namespace std ;
+int main(){
+    int que,ans,correct,score=0;
+    cout<<"question 1"<<endl;
+    cout<<"option1" <<endl;
+    cout<<"option2"<<endl;
+    cout<<"option 3"<<endl;
+    cout<<"option 4"<<endl;
+    cin>>ans;
+    correct=2;
+       if (ans ==correct){cout<<"correct"<<correct;
+    score++;}
+    else{cout<<"incorrect, the correct option is "<<correct<<endl;}
+
+    cout<<"question 2"<<endl;
+    cout<<"option1" <<endl;
+    cout<<"option2"<<endl;
+    cout<<"option 3"<<endl;
+    cout<<"option 4"<<endl;
+    cin>>ans;
+    correct=3;
+        if (ans ==correct){cout<<"correct"<<correct<<endl;
+    score++;}
+    else{cout<<"incorrect, the correct option is "<<correct<<endl;}
+
+    cout<<"question 3"<<endl;
+    cout<<"option1" <<endl;
+    cout<<"option2"<<endl;
+    cout<<"option 3"<<endl;
+    cout<<"option 4"<<endl;
+    cin>>ans;
+    correct=4;
+     if (ans ==correct){cout<<"correct"<<correct<<endl;
+    score++;}
+    else{cout<<"incorrect, the correct option is "<<correct;
+        cout<<endl;}
+
+    cout <<"your total score is "<<score<<"out of 3"<<endl;
+    return 0;
+}

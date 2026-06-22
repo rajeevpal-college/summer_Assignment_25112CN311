@@ -1,0 +1,42 @@
+//Q100 Write a program to Sort words by length
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+
+    string nstr;
+    cout<<"enter string: "; 
+
+    // cin>>nstr;
+    getline(cin,nstr);
+
+    //vector<string>word;
+    vector<string>words;
+    string word="";
+
+    nstr+=' ';
+
+
+    for(int i=0;i<nstr.length();i++){
+        if (nstr[i]!=' '){
+            word +=nstr[i];}
+            else{
+                if(word!=""){    //space nhi 
+                    words.push_back(word);//word word confusion
+                }
+                    word="";//space nhi
+                }
+            }
+
+            sort(words.begin(),words.end(),//word nhi words hoga 
+            [](string a,string b){
+                return a.length()<b.length();});    //;})
+
+
+                cout<<"word sorted by length: ";
+
+                for(int i=0;i<words.size();i++){
+                    cout<<words[i]<<" ";   //words not word
+                }
+                return 0;
+            }
+    

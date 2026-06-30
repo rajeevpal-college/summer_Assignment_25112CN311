@@ -1,1 +1,176 @@
 //Q109 Write a program to Create library management system
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int choice;
+    int count = 0;
+
+    int bookId[100];
+    string bookName[100];
+    string author[100];
+    int quantity[100];
+
+    do {
+        cout << "\n===== LIBRARY MANAGEMENT SYSTEM =====\n";
+        cout << "1. Add Book\n";
+        cout << "2. Display Books\n";
+        cout << "3. Search Book\n";
+        cout << "4. Update Book\n";
+        cout << "5. Delete Book\n";
+        cout << "6. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch (choice) {
+
+        case 1: {
+            // Nayi book add karna
+            cout << "\nEnter Book ID: ";
+            cin >> bookId[count];
+
+            cin.ignore();
+
+            cout << "Enter Book Name: ";
+            getline(cin, bookName[count]);
+
+            cout << "Enter Author Name: ";
+            getline(cin, author[count]);
+
+            cout << "Enter Quantity: ";
+            cin >> quantity[count];
+
+            count++;
+
+            cout << "Book Added Successfully!\n";
+            break;
+        }
+
+        case 2: {
+            // Sabhi books display karna
+            if (count == 0) {
+                cout << "\nNo Books Available!\n";
+            }
+            else {
+                cout << "\n----- Library Records -----\n";
+
+                for (int i = 0; i < count; i++) {
+                    cout << "\nBook " << i + 1 << endl;
+                    cout << "Book ID     : " << bookId[i] << endl;
+                    cout << "Book Name   : " << bookName[i] << endl;
+                    cout << "Author      : " << author[i] << endl;
+                    cout << "Quantity    : " << quantity[i] << endl;
+                }
+            }
+            break;
+        }
+
+        case 3: {
+            // Book search karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Book ID to Search: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (bookId[i] == id) {
+
+                    cout << "\nBook Found\n";
+                    cout << "Book ID     : " << bookId[i] << endl;
+                    cout << "Book Name   : " << bookName[i] << endl;
+                    cout << "Author      : " << author[i] << endl;
+                    cout << "Quantity    : " << quantity[i] << endl;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Book Not Found!\n";
+
+            break;
+        }
+
+        case 4: {
+            // Book details update karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Book ID to Update: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (bookId[i] == id) {
+
+                    cin.ignore();
+
+                    cout << "Enter New Book Name: ";
+                    getline(cin, bookName[i]);
+
+                    cout << "Enter New Author Name: ";
+                    getline(cin, author[i]);
+
+                    cout << "Enter New Quantity: ";
+                    cin >> quantity[i];
+
+                    cout << "Book Updated Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Book Not Found!\n";
+
+            break;
+        }
+
+        case 5: {
+            // Book delete karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Book ID to Delete: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (bookId[i] == id) {
+
+                    for (int j = i; j < count - 1; j++) {
+                        bookId[j] = bookId[j + 1];
+                        bookName[j] = bookName[j + 1];
+                        author[j] = author[j + 1];
+                        quantity[j] = quantity[j + 1];
+                    }
+
+                    count--;
+
+                    cout << "Book Deleted Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Book Not Found!\n";
+
+            break;
+        }
+
+        case 6:
+            cout << "Exiting Program...\n";
+            break;
+
+        default:
+            cout << "Invalid Choice!\n";
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}

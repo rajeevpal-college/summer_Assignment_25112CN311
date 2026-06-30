@@ -1,0 +1,50 @@
+//Write a program to Create bank account system
+//balance check , deposite, withdraw, exit
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int bal=0,dep=0,withd=0,exit,lang,opt,temp;
+    cout<<"select language "<<endl;
+    cout<<"enter 1 for english "<<endl<<"hindi ke liye 2 dabaye " ;
+    cin>>lang;
+   // if (lang==1){
+
+        while(true){
+        cout<<"press 1 to check balance "<<endl;
+        cout<<"press 2 for depositing money "<<endl;
+        cout<<"press 3 for withdrawing money "<<endl;
+        cout<<"press 4 to exit "<<endl;
+        
+        cin>>opt;
+        if(opt==1){
+            cout<<"your balance is "<<bal<<endl;
+        }
+        else if(opt==2){
+            cout<<"enter amount then cash you want to deposite "<<endl;
+            //cin>>+=dep;
+            cin>>dep;
+            bal+=dep;
+            cout<<"your final balance is "<<bal<<endl;
+        }
+        else if (opt==3){
+            cout<<"enter the amount you want to withdraw from avail bal "<<bal<<endl;
+            
+            cin>>withd;
+            if(withd<=bal){
+            bal-=withd;
+            cout<<"balance left "<<bal<<endl;
+            }
+            else{cout<<"insufficient balance "<<endl;}
+        }
+        else if (opt==4){
+            cout<<"program ended ";
+            break;
+            // lang 1 aur 2 ka function banao , usko yha pr fir se call kro second time 
+            //ya fir esa koi func/constant jisse program wapas upar chala jaye
+        }
+        else{
+            cout<<"invalid option "<<endl;
+        }
+    }
+    return 0;
+}

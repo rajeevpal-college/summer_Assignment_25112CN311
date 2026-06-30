@@ -1,0 +1,130 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int choice;
+    int count = 0;
+
+    int bookId[100];
+    string title[100];
+    string author[100];
+
+    do {
+        cout << "\n===== MINI LIBRARY SYSTEM =====\n";
+        cout << "1. Add Book\n";
+        cout << "2. Display Books\n";
+        cout << "3. Search Book\n";
+        cout << "4. Delete Book\n";
+        cout << "5. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch (choice) {
+
+        case 1: {
+            // Nayi book add karna
+            cout << "\nEnter Book ID: ";
+            cin >> bookId[count];
+
+            cin.ignore();
+
+            cout << "Enter Book Title: ";
+            getline(cin, title[count]);
+
+            cout << "Enter Author Name: ";
+            getline(cin, author[count]);
+
+            count++;
+
+            cout << "Book Added Successfully!\n";
+            break;
+        }
+
+        case 2: {
+            // Sabhi books display karna
+            if (count == 0) {
+                cout << "\nNo Books Available!\n";
+            }
+            else {
+                cout << "\n----- Library Records -----\n";
+
+                for (int i = 0; i < count; i++) {
+                    cout << "\nBook " << i + 1 << endl;
+                    cout << "Book ID : " << bookId[i] << endl;
+                    cout << "Title   : " << title[i] << endl;
+                    cout << "Author  : " << author[i] << endl;
+                }
+            }
+            break;
+        }
+
+        case 3: {
+            // Book ID se search karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Book ID to Search: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (bookId[i] == id) {
+                    cout << "\nBook Found\n";
+                    cout << "Book ID : " << bookId[i] << endl;
+                    cout << "Title   : " << title[i] << endl;
+                    cout << "Author  : " << author[i] << endl;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Book Not Found!\n";
+
+            break;
+        }
+
+        case 4: {
+            // Book delete karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Book ID to Delete: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (bookId[i] == id) {
+
+                    for (int j = i; j < count - 1; j++) {
+                        bookId[j] = bookId[j + 1];
+                        title[j] = title[j + 1];
+                        author[j] = author[j + 1];
+                    }
+
+                    count--;
+
+                    cout << "Book Deleted Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Book Not Found!\n";
+
+            break;
+        }
+
+        case 5:
+            cout << "Exiting Library System...\n";
+            break;
+
+        default:
+            cout << "Invalid Choice!\n";
+        }
+
+    } while (choice != 5);
+
+    return 0;
+}

@@ -1,0 +1,195 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int choice;
+    int count = 0;
+
+    int empId[100];
+    string empName[100];
+    float basicSalary[100];
+    float bonus[100];
+
+    do {
+
+        cout << "\n===== SALARY MANAGEMENT SYSTEM =====\n";
+        cout << "1. Add Employee Salary\n";
+        cout << "2. Display Salary Records\n";
+        cout << "3. Search Employee\n";
+        cout << "4. Update Salary\n";
+        cout << "5. Delete Record\n";
+        cout << "6. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch(choice) {
+
+        case 1: {
+            // Naya employee add karna
+            cout << "\nEnter Employee ID: ";
+            cin >> empId[count];
+
+            cin.ignore();
+
+            cout << "Enter Employee Name: ";
+            getline(cin, empName[count]);
+
+            cout << "Enter Basic Salary: ";
+            cin >> basicSalary[count];
+
+            cout << "Enter Bonus: ";
+            cin >> bonus[count];
+
+            count++;
+
+            cout << "Record Added Successfully!\n";
+            break;
+        }
+
+        case 2: {
+            // Sabhi salary records dikhana
+            if(count == 0) {
+                cout << "\nNo Records Found!\n";
+            }
+            else {
+
+                cout << "\n----- Salary Records -----\n";
+
+                for(int i = 0; i < count; i++) {
+
+                    float totalSalary =
+                    basicSalary[i] + bonus[i];
+
+                    cout << "\nEmployee " << i + 1 << endl;
+                    cout << "ID           : "
+                         << empId[i] << endl;
+                    cout << "Name         : "
+                         << empName[i] << endl;
+                    cout << "Basic Salary : "
+                         << basicSalary[i] << endl;
+                    cout << "Bonus        : "
+                         << bonus[i] << endl;
+                    cout << "Total Salary : "
+                         << totalSalary << endl;
+                }
+            }
+            break;
+        }
+
+        case 3: {
+            // Employee search karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Employee ID: ";
+            cin >> id;
+
+            for(int i = 0; i < count; i++) {
+
+                if(empId[i] == id) {
+
+                    float totalSalary =
+                    basicSalary[i] + bonus[i];
+
+                    cout << "\nRecord Found\n";
+                    cout << "ID           : "
+                         << empId[i] << endl;
+                    cout << "Name         : "
+                         << empName[i] << endl;
+                    cout << "Basic Salary : "
+                         << basicSalary[i] << endl;
+                    cout << "Bonus        : "
+                         << bonus[i] << endl;
+                    cout << "Total Salary : "
+                         << totalSalary << endl;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+                cout << "Record Not Found!\n";
+
+            break;
+        }
+
+        case 4: {
+            // Salary update karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Employee ID to Update: ";
+            cin >> id;
+
+            for(int i = 0; i < count; i++) {
+
+                if(empId[i] == id) {
+
+                    cout << "Enter New Basic Salary: ";
+                    cin >> basicSalary[i];
+
+                    cout << "Enter New Bonus: ";
+                    cin >> bonus[i];
+
+                    cout << "Salary Updated Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+                cout << "Record Not Found!\n";
+
+            break;
+        }
+
+        case 5: {
+            // Record delete karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Employee ID to Delete: ";
+            cin >> id;
+
+            for(int i = 0; i < count; i++) {
+
+                if(empId[i] == id) {
+
+                    for(int j = i; j < count - 1; j++) {
+
+                        empId[j] = empId[j + 1];
+                        empName[j] = empName[j + 1];
+                        basicSalary[j] = basicSalary[j + 1];
+                        bonus[j] = bonus[j + 1];
+                    }
+
+                    count--;
+
+                    cout << "Record Deleted Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+                cout << "Record Not Found!\n";
+
+            break;
+        }
+
+        case 6:
+            cout << "Exiting Program...\n";
+            break;
+
+        default:
+            cout << "Invalid Choice!\n";
+        }
+
+    } while(choice != 6);
+
+    return 0;
+}

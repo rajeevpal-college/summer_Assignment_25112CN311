@@ -1,0 +1,175 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int choice;
+    int count = 0;
+
+    int itemId[100];
+    string itemName[100];
+    int quantity[100];
+    float price[100];
+
+    do {
+        cout << "\n===== INVENTORY MANAGEMENT SYSTEM =====\n";
+        cout << "1. Add Item\n";
+        cout << "2. Display Items\n";
+        cout << "3. Search Item\n";
+        cout << "4. Update Item\n";
+        cout << "5. Delete Item\n";
+        cout << "6. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch (choice) {
+
+        case 1: {
+            // Naya item add karna
+            cout << "\nEnter Item ID: ";
+            cin >> itemId[count];
+
+            cin.ignore();
+
+            cout << "Enter Item Name: ";
+            getline(cin, itemName[count]);
+
+            cout << "Enter Quantity: ";
+            cin >> quantity[count];
+
+            cout << "Enter Price: ";
+            cin >> price[count];
+
+            count++;
+
+            cout << "Item Added Successfully!\n";
+            break;
+        }
+
+        case 2: {
+            // Sabhi items display karna
+            if (count == 0) {
+                cout << "\nInventory Empty!\n";
+            }
+            else {
+                cout << "\n----- Inventory Records -----\n";
+
+                for (int i = 0; i < count; i++) {
+                    cout << "\nItem " << i + 1 << endl;
+                    cout << "Item ID  : " << itemId[i] << endl;
+                    cout << "Name     : " << itemName[i] << endl;
+                    cout << "Quantity : " << quantity[i] << endl;
+                    cout << "Price    : " << price[i] << endl;
+                }
+            }
+            break;
+        }
+
+        case 3: {
+            // Item ID se search karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Item ID to Search: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (itemId[i] == id) {
+
+                    cout << "\nItem Found\n";
+                    cout << "Item ID  : " << itemId[i] << endl;
+                    cout << "Name     : " << itemName[i] << endl;
+                    cout << "Quantity : " << quantity[i] << endl;
+                    cout << "Price    : " << price[i] << endl;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Item Not Found!\n";
+
+            break;
+        }
+
+        case 4: {
+            // Item details update karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Item ID to Update: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (itemId[i] == id) {
+
+                    cin.ignore();
+
+                    cout << "Enter New Item Name: ";
+                    getline(cin, itemName[i]);
+
+                    cout << "Enter New Quantity: ";
+                    cin >> quantity[i];
+
+                    cout << "Enter New Price: ";
+                    cin >> price[i];
+
+                    cout << "Item Updated Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Item Not Found!\n";
+
+            break;
+        }
+
+        case 5: {
+            // Item delete karna
+            int id;
+            bool found = false;
+
+            cout << "Enter Item ID to Delete: ";
+            cin >> id;
+
+            for (int i = 0; i < count; i++) {
+                if (itemId[i] == id) {
+
+                    for (int j = i; j < count - 1; j++) {
+                        itemId[j] = itemId[j + 1];
+                        itemName[j] = itemName[j + 1];
+                        quantity[j] = quantity[j + 1];
+                        price[j] = price[j + 1];
+                    }
+
+                    count--;
+
+                    cout << "Item Deleted Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if (!found)
+                cout << "Item Not Found!\n";
+
+            break;
+        }
+
+        case 6:
+            cout << "Exiting Program...\n";
+            break;
+
+        default:
+            cout << "Invalid Choice!\n";
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}

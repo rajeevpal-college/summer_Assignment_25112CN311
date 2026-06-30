@@ -1,0 +1,175 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int choice;
+    int count = 0;
+
+    string name[100];
+    string phone[100];
+    string email[100];
+
+    do {
+        cout << "\n===== CONTACT MANAGEMENT SYSTEM =====\n";
+        cout << "1. Add Contact\n";
+        cout << "2. Display Contacts\n";
+        cout << "3. Search Contact\n";
+        cout << "4. Update Contact\n";
+        cout << "5. Delete Contact\n";
+        cout << "6. Exit\n";
+        cout << "Enter Choice: ";
+        cin >> choice;
+
+        switch(choice) {
+
+        case 1: {
+            // Naya contact add karna
+            cin.ignore();
+
+            cout << "\nEnter Name: ";
+            getline(cin, name[count]);
+
+            cout << "Enter Phone Number: ";
+            getline(cin, phone[count]);
+
+            cout << "Enter Email: ";
+            getline(cin, email[count]);
+
+            count++;
+
+            cout << "Contact Added Successfully!\n";
+            break;
+        }
+
+        case 2: {
+            // Sabhi contacts display karna
+            if(count == 0) {
+                cout << "\nNo Contacts Found!\n";
+            }
+            else {
+                cout << "\n----- Contact List -----\n";
+
+                for(int i = 0; i < count; i++) {
+                    cout << "\nContact " << i + 1 << endl;
+                    cout << "Name  : " << name[i] << endl;
+                    cout << "Phone : " << phone[i] << endl;
+                    cout << "Email : " << email[i] << endl;
+                }
+            }
+            break;
+        }
+
+        case 3: {
+            // Name se contact search karna
+            string searchName;
+            bool found = false;
+
+            cin.ignore();
+
+            cout << "Enter Name to Search: ";
+            getline(cin, searchName);
+
+            for(int i = 0; i < count; i++) {
+
+                if(name[i] == searchName) {
+
+                    cout << "\nContact Found\n";
+                    cout << "Name  : " << name[i] << endl;
+                    cout << "Phone : " << phone[i] << endl;
+                    cout << "Email : " << email[i] << endl;
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+                cout << "Contact Not Found!\n";
+
+            break;
+        }
+
+        case 4: {
+            // Contact update karna
+            string searchName;
+            bool found = false;
+
+            cin.ignore();
+
+            cout << "Enter Name to Update: ";
+            getline(cin, searchName);
+
+            for(int i = 0; i < count; i++) {
+
+                if(name[i] == searchName) {
+
+                    cout << "Enter New Name: ";
+                    getline(cin, name[i]);
+
+                    cout << "Enter New Phone Number: ";
+                    getline(cin, phone[i]);
+
+                    cout << "Enter New Email: ";
+                    getline(cin, email[i]);
+
+                    cout << "Contact Updated Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+                cout << "Contact Not Found!\n";
+
+            break;
+        }
+
+        case 5: {
+            // Contact delete karna
+            string searchName;
+            bool found = false;
+
+            cin.ignore();
+
+            cout << "Enter Name to Delete: ";
+            getline(cin, searchName);
+
+            for(int i = 0; i < count; i++) {
+
+                if(name[i] == searchName) {
+
+                    for(int j = i; j < count - 1; j++) {
+                        name[j] = name[j + 1];
+                        phone[j] = phone[j + 1];
+                        email[j] = email[j + 1];
+                    }
+
+                    count--;
+
+                    cout << "Contact Deleted Successfully!\n";
+
+                    found = true;
+                    break;
+                }
+            }
+
+            if(!found)
+                cout << "Contact Not Found!\n";
+
+            break;
+        }
+
+        case 6:
+            cout << "Exiting Program...\n";
+            break;
+
+        default:
+            cout << "Invalid Choice!\n";
+        }
+
+    } while(choice != 6);
+
+    return 0;
+}

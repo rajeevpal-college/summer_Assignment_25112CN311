@@ -1,0 +1,85 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    string str;
+    int choice;
+
+    cout << "Enter a String: ";
+    getline(cin, str);
+
+    do {
+        cout << "\n===== STRING OPERATIONS MENU =====\n";
+        cout << "1. Display String\n";
+        cout << "2. Find Length\n";
+        cout << "3. Convert to Uppercase\n";
+        cout << "4. Convert to Lowercase\n";
+        cout << "5. Reverse String\n";
+        cout << "6. Exit\n";
+        cout << "Enter Your Choice: ";
+        cin >> choice;
+
+        switch (choice) {
+
+        case 1: {
+            // String display karna
+            cout << "String = " << str << endl;
+            break;
+        }
+
+        case 2: {
+            // String ki length nikalna
+            cout << "Length = " << str.length() << endl;
+            break;
+        }
+
+        case 3: {
+            // String ko uppercase me convert karna
+            string temp = str;
+
+            for (int i = 0; i < temp.length(); i++) {
+                temp[i] = toupper(temp[i]);
+            }
+
+            cout << "Uppercase String = "
+                 << temp << endl;
+            break;
+        }
+
+        case 4: {
+            // String ko lowercase me convert karna
+            string temp = str;
+
+            for (int i = 0; i < temp.length(); i++) {
+                temp[i] = tolower(temp[i]);
+            }
+
+            cout << "Lowercase String = "
+                 << temp << endl;
+            break;
+        }
+
+        case 5: {
+            // String reverse karna
+            string temp = str;
+
+            reverse(temp.begin(), temp.end());
+
+            cout << "Reversed String = "
+                 << temp << endl;
+            break;
+        }
+
+        case 6:
+            cout << "Exiting Program...\n";
+            break;
+
+        default:
+            cout << "Invalid Choice!\n";
+        }
+
+    } while (choice != 6);
+
+    return 0;
+}
